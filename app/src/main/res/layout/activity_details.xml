@@ -1,0 +1,113 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="articalApi"
+            type="com.eman.mostarticalapp.domain.model.Artical" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/media_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:articalImage="@{articalApi.urlImg}"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="H,16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:text="@{articalApi.title}"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/media_image" />
+
+        <TextView
+            android:id="@+id/txt_adxKeywords"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@{articalApi.adxKeywords}"
+            android:textColor="#8A000000"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@id/txt_title"
+            app:layout_constraintStart_toStartOf="@+id/txt_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+        <TextView
+            android:id="@+id/txt_abstract"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@{articalApi.abstract}"
+            android:textColor="#8A000000"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@id/txt_adxKeywords"
+            app:layout_constraintStart_toStartOf="@+id/txt_adxKeywords"
+            app:layout_constraintTop_toBottomOf="@+id/txt_adxKeywords" />
+
+
+        <TextView
+            android:id="@+id/txt_published"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{articalApi.type}"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@id/txt_published2"
+            app:layout_constraintEnd_toEndOf="@id/txt_abstract"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="@id/txt_abstract"
+            app:layout_constraintTop_toBottomOf="@id/txt_abstract" />
+
+        <TextView
+            android:id="@+id/txt_published2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{articalApi.publishedDate}"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginStart="10dp"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@id/txt_abstract"
+            app:layout_constraintStart_toEndOf="@id/txt_published"
+            app:layout_constraintTop_toBottomOf="@id/txt_abstract" />
+
+        <TextView
+            android:id="@+id/txt_url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:autoLink="web"
+            android:text="@{articalApi.url}"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@id/txt_abstract"
+            app:layout_constraintStart_toStartOf="@+id/txt_abstract"
+            app:layout_constraintTop_toBottomOf="@+id/txt_published" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
